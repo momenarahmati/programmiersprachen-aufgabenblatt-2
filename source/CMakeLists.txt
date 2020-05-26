@@ -5,6 +5,8 @@ add_executable(example
   example.cpp
   vec2.hpp
   vec2.cpp
+  mat2.hpp
+  mat2.cpp
   )
 target_link_libraries(example
   glfw
