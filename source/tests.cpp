@@ -101,19 +101,19 @@ TEST_CASE("testFreieFuncOperator*12", "[operator*]")
     REQUIRE(v.x == Approx(-11.0f));
     REQUIRE(v.y == Approx(55.0f));
 }
-/*
-TEST_CASE("15:testOperator*Mat2", "[operator*=]")
+
+TEST_CASE("13:testOperator*Mat2", "[operator*=]")
 {
-    Mat2 a{ 1,2,3,4 };
+    Mat2 a{ 0,2,-3,4 };
     Mat2 b{ 1,2,3,4 };
     a *= b;
-    REQUIRE(a.e_00 == Approx(7.0f));
-    REQUIRE(a.e_01 == Approx(22.0f));
-    REQUIRE(a.e_10 == Approx(15.0f));
-    REQUIRE(a.e_11 == Approx(46.0f));
+    REQUIRE(a.e_00 == Approx(6.0f));
+    REQUIRE(a.e_01 == Approx(20.0f));
+    REQUIRE(a.e_10 == Approx(9.0f));
+    REQUIRE(a.e_11 == Approx(34.0f));
 }
 
-TEST_CASE("standardKonstructur_Mat")
+TEST_CASE("14standardKonstructur_Mat")
 {
     Mat2 a; 
     REQUIRE(a.e_00 == Approx(1.0f));
@@ -121,14 +121,86 @@ TEST_CASE("standardKonstructur_Mat")
     REQUIRE(a.e_10 == Approx(0.0f));
     REQUIRE(a.e_11 == Approx(1.0f));
 } 
-TEST_CASE("testMatrixOperatoren", "[operatorMat*]")
+TEST_CASE("15:testMatrixOperatoren", "[operatorMat*]")
 {
-    Mat2 a{ 1.0f,2.0f,3.0f,4.0f };
+    Mat2 a{ -1.0f,2.0f,-3.0f,4.0f };
+    REQUIRE(a.e_00 == Approx(-1.0f));
+    REQUIRE(a.e_01 == Approx(2.0f));
+    REQUIRE(a.e_10 == Approx(-3.0f));
+    REQUIRE(a.e_11 == Approx(4.0f));
+} 
+TEST_CASE("16:test_Multiplikation_Matriz_Vektor")
+{
+    Mat2 a{ -5,0,7,1 };
+    Vec2 b{ 2,3 };
+    b = a * b;
+    REQUIRE(b.x == Approx(-10.0f));
+    REQUIRE(b.y == Approx(17.0f));
+}
+TEST_CASE("17:test_Multiplikation_Matriz_Vektor")
+{
+    Mat2 a{ -5,0,7,1 };
+    Vec2 b{ 0,0 };
+    b = a * b;
+    REQUIRE(b.x == Approx(0.0f));
+    REQUIRE(b.y == Approx(0.0f));
+}
+TEST_CASE("18:testInversMatriz", "[inverse]")
+{
+    Mat2 a{ 10,10,10,10 };
+    a = inverse(a);
+    REQUIRE(a.e_00 == Approx(10.0f));
+    REQUIRE(a.e_01 == Approx(10.0f));
+    REQUIRE(a.e_10 == Approx(10.0f));
+    REQUIRE(a.e_11 == Approx(10.0f));
+}
+TEST_CASE("19:testInversMatriz", "[inverse]")
+{
+    Mat2 a{ 11,14,15,-16 };
+    a = inverse(a);
+    REQUIRE(a.e_00 == Approx(0.04145f));
+    REQUIRE(a.e_01 == Approx(0.03627f));
+    REQUIRE(a.e_10 == Approx(0.03886f));
+    REQUIRE(a.e_11 == Approx(-0.0285f));
+}
+TEST_CASE("20:testTransposeMatriz", "[transpose]")
+{
+    Mat2 a{ 1,2,3,4 };
+    a = transpose(a);
     REQUIRE(a.e_00 == Approx(1.0f));
-    REQUIRE(a.e_01 == Approx(0.0f));
-    REQUIRE(a.e_10 == Approx(0.0f));
-    REQUIRE(a.e_11 == Approx(1.0f));
-} */
+    REQUIRE(a.e_01 == Approx(3.0f));
+    REQUIRE(a.e_10 == Approx(2.0f));
+    REQUIRE(a.e_11 == Approx(4.0f));
+}
+TEST_CASE("21:testMake_rotation", "[make_rotation_mat2]")
+{
+    float phi = 60;
+    Mat2 m = make_rotation_mat2(phi);
+    REQUIRE(m.e_00 == Approx(-0.95f).epsilon(0.01));
+    REQUIRE(m.e_01 == Approx(0.30f).epsilon(0.01));
+    REQUIRE(m.e_10 == Approx(-0.30f).epsilon(0.01));
+    REQUIRE(m.e_11 == Approx(-0.95f).epsilon(0.01));
+}
+TEST_CASE("22:testMake_rotation", "[make_rotation_mat2]")
+{
+    float phi = -60;
+    Mat2 m = make_rotation_mat2(phi);
+    REQUIRE(m.e_00 == Approx(-0.95f).epsilon(0.01));
+    REQUIRE(m.e_01 == Approx(-0.30f).epsilon(0.01));
+    REQUIRE(m.e_10 == Approx(0.30f).epsilon(0.01));
+    REQUIRE(m.e_11 == Approx(-0.95f).epsilon(0.01));
+}
+
+TEST_CASE("23:testDeterminantMatriz")
+{
+    Mat2 a{ 1,2,3,4 };
+    REQUIRE(a.det() == Approx(-2.0f));
+}
+TEST_CASE("24:testDeterminantMatriz")
+{
+    Mat2 a{ 0,0,0,0 };
+    REQUIRE(a.det() == Approx(0.0f));
+}
 
 int main(int argc, char *argv[])
 {
