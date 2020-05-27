@@ -17,7 +17,8 @@ public:
 	//getter function
 	Vec2 min() const;
 	Vec2 max() const;
-
+	//void drawRect(Window const& win)const;
+	//void drawRect(Window const& win, Color const& color) const;
 
 private:
 	Vec2 min_;

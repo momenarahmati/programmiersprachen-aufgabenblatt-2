@@ -46,3 +46,19 @@ Vec2 Rectangle::max() const
 {
 	return max_;
 }
+/*
+void Rectangle::drawRect(Window const& win) const {
+	win.draw_line(min_.x, min_.y, min_.x, max_.y, 0.0f, 0.0f, 0.0f);
+	win.draw_line(min_.x, max_.y, max_.x, max_.y, 0.0f, 0.0f, 0.0f);
+	win.draw_line(max_.x, max_.y, max_.x, min_.y, 0.0f, 0.0f, 0.0f);
+	win.draw_line(max_.x, min_.y, min_.x, min_.y, 0.0f, 0.0f, 0.0f);
+	return;
+}
+
+void Rectangle::drawRect(Window const& win, Color const& color) const{
+	win.draw_line(min_.x, min_.y, min_.x, max_.y, color.r, color.g, color.b);
+	win.draw_line(min_.x, max_.y, max_.x, max_.y, color.r, color.g, color.b);
+	win.draw_line(max_.x, max_.y, max_.x, min_.y, color.r, color.g, color.b);
+	win.draw_line(max_.x, min_.y, min_.x, min_.y, color.r, color.g, color.b);
+	return;
+}*/
