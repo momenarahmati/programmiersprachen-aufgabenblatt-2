@@ -5,6 +5,7 @@
 #include "mat2.hpp"
 #include "color.hpp"
 #include "rectangle.hpp"
+#include "circle.hpp"
 
 TEST_CASE("StandardCons1","[Vec2]") 
 {

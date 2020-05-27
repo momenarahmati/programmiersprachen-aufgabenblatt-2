@@ -10,6 +10,8 @@ add_executable(example
   color.hpp
   rectangle.hpp
   rectangle.cpp
+  circle.hpp
+  circle.cpp
   )
 target_link_libraries(example
   glfw
@@ -30,6 +32,8 @@ add_executable(tests
   color.hpp
   rectangle.hpp
   rectangle.cpp
+  circle.hpp
+  circle.hpp
   )
 target_link_libraries(tests
   glfw
