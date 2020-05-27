@@ -3,6 +3,7 @@
 
 #include "vec2.hpp"
 #include "mat2.hpp"
+#include "color.hpp"
 
 TEST_CASE("StandardCons1","[Vec2]") 
 {
@@ -201,7 +202,20 @@ TEST_CASE("24:testDeterminantMatriz")
     Mat2 a{ 0,0,0,0 };
     REQUIRE(a.det() == Approx(0.0f));
 }
-
+TEST_CASE("25FarbeTest", "[color]")
+{
+    Color red{ 0.8f,0.0f,1.3f };
+    REQUIRE(red.r == 0.8f);
+    REQUIRE(red.g == 0.0f);
+    REQUIRE(red.b == 1.3f);
+}
+TEST_CASE("26FarbeGrauDefaultTest", "[color]")
+{
+    Color grau{ };
+    REQUIRE(grau.r == 211);
+    REQUIRE(grau.g == 211);
+    REQUIRE(grau.b == 211);
+}
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);
