@@ -8,6 +8,8 @@ add_executable(example
   mat2.hpp
   mat2.cpp
   color.hpp
+  rectangle.hpp
+  rectangle.cpp
   )
 target_link_libraries(example
   glfw
@@ -26,6 +28,8 @@ add_executable(tests
   mat2.hpp
   mat2.cpp
   color.hpp
+  rectangle.hpp
+  rectangle.cpp
   )
 target_link_libraries(tests
   glfw

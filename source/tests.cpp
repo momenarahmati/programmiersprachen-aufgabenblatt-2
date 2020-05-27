@@ -4,6 +4,7 @@
 #include "vec2.hpp"
 #include "mat2.hpp"
 #include "color.hpp"
+#include "rectangle.hpp"
 
 TEST_CASE("StandardCons1","[Vec2]") 
 {
@@ -216,6 +217,14 @@ TEST_CASE("26FarbeGrauDefaultTest", "[color]")
     REQUIRE(grau.g == 211);
     REQUIRE(grau.b == 211);
 }
+
+
+
+
+
+
+
+
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);
